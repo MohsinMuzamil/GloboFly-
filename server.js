@@ -111,12 +111,12 @@ app.delete('/destination/:id', function (req, res) {
 // Home Page 
 app.get('/', (req, res) => res.send('Welcome! You are all set to go!'))
 
-// Configure server 
-var server = app.listen(9000, '127.0.0.1', function (req, res) {
 
-    var host = server.address().address
-    var port = server.address().port
+// Use environment port or default to 9000
+const PORT = process.env.PORT || 9000;
 
-    console.log(`Server running at http://${host}:${port}/`);
-})
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
 
