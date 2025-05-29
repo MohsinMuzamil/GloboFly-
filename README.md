@@ -25,7 +25,8 @@
 
 ## Screenshots
 
-*![Globo Fly](https://github.com/user-attachments/assets/70065598-d223-4128-ab6b-d60279635e92)*
+![GloboFly](https://github.com/user-attachments/assets/89b9e11b-e7c5-402c-ab09-3e9f29a1ff35)
+
 
 ---
 
