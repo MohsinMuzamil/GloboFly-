@@ -25,7 +25,7 @@
 
 ## Screenshots
 
-*Add your app screenshots here!*
+*![Globo Fly](https://github.com/user-attachments/assets/70065598-d223-4128-ab6b-d60279635e92)*
 
 ---
 
