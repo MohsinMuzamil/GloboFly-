@@ -14,7 +14,7 @@ object ServiceBuilder {
     private const val URL = "https://globofly-production.up.railway.app/"
 
     // OkHttpClient is used by Retrofit for HTTP requests.
-    private val okHttp = OkHttpClient.Builder()
+    private val okHttp = UnsafeOkHttpClient.getUnsafeOkHttpClient()
 
     // Retrofit.Builder is used to configure the Retrofit instance
     // - Sets base URL
@@ -23,7 +23,7 @@ object ServiceBuilder {
     private val builder = Retrofit.Builder()
         .baseUrl(URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .client(okHttp.build())
+        .client(UnsafeOkHttpClient.getUnsafeOkHttpClient()) // correct
 
     // The Retrofit instance used to create service interfaces (APIs)
     private val retrofit: Retrofit = builder.build()
