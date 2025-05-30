@@ -15,9 +15,9 @@ object SampleData {
 		// Add some sample items
 		val newDestination1 = Destination()
 		newDestination1.id = 1
-		newDestination1.city = "New Delhi"
+		newDestination1.city = "Karachi"
 		newDestination1.description = dummy_description
-		newDestination1.country = "India"
+		newDestination1.country = "Pakistan"
 		DESTINATIONS.add(newDestination1)
 
 		val newDestination2 = Destination()
