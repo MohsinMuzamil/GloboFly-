@@ -96,6 +96,51 @@ com.mohsin.globofly
 
 ---
 
+## ⚠️ Note for Android 5.1.1 (Lollipop) and Older Devices
+
+If you run GloboFly on Android 5.1.1 or similar older versions, you may encounter the following error when the app tries to connect to the API over HTTPS:
+
+```
+java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.
+```
+
+**Reason:**  
+Older Android versions do not trust many modern SSL certificates by default, causing HTTPS connection failures.
+
+**Workaround Implemented:**  
+To allow development and testing on these devices, we've used a custom `UnsafeOkHttpClient` that disables SSL certificate validation in development builds. This is integrated in `ServiceBuilder.kt`:
+
+```kotlin
+private val okHttp = UnsafeOkHttpClient.getUnsafeOkHttpClient()
+```
+
+**Warning:**  
+> This disables all SSL checks and should only be used for development or testing on old Android devices.  
+> **Never use this approach in production apps** as it makes your connection insecure and vulnerable to man-in-the-middle attacks.
+
+**For production or newer devices:**  
+- This workaround is not used; secure SSL connections will operate as normal.
+- For best security, run the app on Android 7.0+ or ensure your backend uses certificates compatible with old devices.
+
+---
+
+## 🕹️ Legacy Android Support Branch
+
+If you are using Android 5.1.1 or any device that requires the SSL workaround, please switch to the dedicated branch for legacy support:
+
+- **Branch name:** `legacy-android-support`
+
+You can check out this branch with:
+
+```bash
+git checkout legacy-android-support
+```
+
+This branch includes the `UnsafeOkHttpClient` workaround described above. For all other users, the main branch is recommended.
+
+---
+
+
 ## Contributing
 
 Pull requests and issues are welcome! Please follow standard Android/Kotlin best practices.
